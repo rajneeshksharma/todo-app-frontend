@@ -1,0 +1,98 @@
+<div class="container-fluid" style="height:auto; background-image: linear-gradient(to right, #232526, #414345);">
+<div class="row justify-content-center">
+  <div class="col-sm-8" style="padding-top: 5%; padding-bottom: 2%; color:white;">
+    <div class="row justify-content-center">
+      <div class="col-md-8 mb-5">
+        <div class="card test form-white">
+          <div class="card-body">
+            <h3 class="text-center white-text py-3"><i class="fa fa-user"></i>SignUp</h3>
+            <p *ngIf="emptyForm" class="danger-text">These fileds can't be empty</p>
+            <form class="form-group" role="form" [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
+              <fieldset>
+                <div class="md-form">
+                  <div>
+                    <i class="fa fa-user prefix white-text"></i>
+                    <input type="text" formControlName="firstName" class="form-control placeholder-size" placeholder="First name">
+                    <div style="padding-left: 50px;" *ngIf="signupForm.controls['firstName'].errors && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">
+                      <span class="danger-text" *ngIf="signupForm.controls['firstName'].errors.required">
+                        firstName is required.
+                      </span>
+                      <span class="danger-text" *ngIf="signupForm.controls['firstName'].errors.pattern">
+                        firstName is invalid.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <div>
+                    <i class="fa fa-user prefix white-text"></i>
+                    <input type="text" formControlName="lastName" class="form-control placeholder-size" placeholder="Last name">
+                    <div style="padding-left: 50px;" *ngIf="signupForm.controls['lastName'].errors && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">
+                      <span class="danger-text" *ngIf="signupForm.controls['lastName'].errors.required">
+                        lastName is required.
+                      </span>
+                      <span class="danger-text" *ngIf="signupForm.controls['lastName'].errors.pattern">
+                        lastName is invalid.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <div>
+                    <i class="fa fa-envelope prefix white-text"></i>
+                    <input type="text" formControlName="email" class="form-control" placeholder="Your email">
+
+
+                    <div style="padding-left: 50px;" *ngIf="signupForm.controls['email'].errors && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+                      <span class="danger-text" *ngIf="signupForm.controls['email'].errors.required">
+                        email is required.
+                      </span>
+                      <span class="danger-text" *ngIf="signupForm.controls['email'].errors.pattern">
+                        email is invalid.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <div>
+                    <i class="fa fa-lock prefix white-text"></i>
+                    <input type="password" formControlName="password" class="form-control placeholder-size" placeholder="Password">
+                      <div style="padding-left: 50px;" *ngIf="signupForm.controls['password'].errors && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+                        <span class="danger-text" *ngIf="signupForm.controls['password'].errors.required">
+                          password is required.
+                        </span>
+                        <span class="danger-text" *ngIf="signupForm.controls['password'].errors.pattern">
+                          Password must be(at least 8 char, 1 num. & one upercase alpha.)
+                        </span>
+                      </div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <div>
+                    <i class="fa fa-lock prefix white-text"></i>
+                    <input  type="password" formControlName="cpassword" class="form-control placeholder-size" placeholder="Confirm Password">
+                    <div style="padding-left: 50px;" *ngIf=" signupForm.controls['cpassword'].dirty || signupForm.controls['cpassword'].touched">
+                        <span  class="danger-text" *ngIf="signupForm.controls['cpassword'].errors?.required">
+                          confirm password is required.
+                        </span>
+      
+                        <span class="danger-text"  *ngIf="signupForm.controls['password'].valid  && signupForm.errors?.mismatch">
+                          password mismatch.
+                        </span>
+                      </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-outline-white waves-effect waves-light">Login</button>
+                </div>
+              </fieldset>
+            </form>
+            <hr>
+            <h5 style="text-align: center;">Go to Login now <a routerLink='/login'>here</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
