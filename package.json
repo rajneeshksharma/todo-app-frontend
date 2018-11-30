@@ -1,5 +1,5 @@
 {
-  "name": "worldchat-frontend",
+  "name": "todoapp-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,10 @@
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
     "ng-social": "^1.0.0",
+    "primeicons": "^1.0.0",
+    "primeng": "^7.0.0",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

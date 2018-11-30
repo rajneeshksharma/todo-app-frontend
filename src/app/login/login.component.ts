@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this.firstName = this.fullName[0];
       this.lastName = this.fullName[this.fullName.length - 1];
       // tslint:disable-next-line:max-line-length
-      console.log(platform + ' login in data : ', userData, userData.email, userData.id, this.firstName, this.lastName);
+      // console.log(platform + ' login in data : ', userData, userData.email, userData.id, this.firstName, this.lastName);
       this.userSocial_id = userData.id;
       const socialUser = {
         firstName: this.firstName,
@@ -51,14 +51,15 @@ export class LoginComponent implements OnInit {
         social_id: userData.id,
         provider: userData.provider
       };
-      console.log(socialUser);
+      // console.log(socialUser);
 
 
       this.apiService.social(socialUser).subscribe(
         (res) => {
           if(res.code === 200){
+            this.apiService.sendUserId(res.data[0].userData._id);
             localStorage.setItem('token', res.data[0].token);
-            this.router.navigate(['/chat']);
+            this.router.navigate(['/todos']);
           } else {
             console.log(res.message);
           }
@@ -79,8 +80,9 @@ export class LoginComponent implements OnInit {
       this.apiService.logIn(this.loginForm.value).subscribe(
        (res) => {
         if(res.code === 200){
+          this.apiService.sendUserId(res.data[0].user._id);
           localStorage.setItem('token', res.data[0].token);
-          this.router.navigate(['/chat']);
+          this.router.navigate(['/todos']);
         } else {
           console.log(res.message);
         }

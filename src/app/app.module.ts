@@ -7,11 +7,12 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
-import { ChatService } from './service/chat.service';
 import { AuthGuard } from './service/auth.guard';
 import { ApiService } from './service/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSocialModule, AuthServiceConfig, GoogleLoginProvider } from 'ng-social';
+import { TodosComponent } from './todos/todos.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -29,7 +30,9 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     SignupComponent,
-    ChatComponent
+    ChatComponent,
+    TodosComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,9 +40,10 @@ export function getAuthServiceConfigs() {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgSocialModule
+    NgSocialModule,
+    BrowserAnimationsModule
   ],
-  providers: [ChatService, AuthGuard, ApiService,{
+  providers: [ AuthGuard, ApiService,{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],
