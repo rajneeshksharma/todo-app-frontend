@@ -7,8 +7,7 @@ import { AuthGuard } from './service/auth.guard';
 import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch:'full'},
-  {path: 'login', component:LoginComponent},
+  {path: '', component:LoginComponent},
   {path: 'signup', component:SignupComponent},
   {path: 'todos', component:TodosComponent, canActivate: [AuthGuard]}
 ];
